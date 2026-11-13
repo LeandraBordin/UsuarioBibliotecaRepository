@@ -26,13 +26,8 @@ public class Usuario implements UserDetails {
         private String email;
         @Column(name = "senha")
         private String senha;
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinColumn(name = "usuario_id",referencedColumnName = "id")
-        private List<Endereco> enderecos;
-        @OneToMany(cascade = CascadeType.ALL)
-        @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-        private List<Telefone> telefones;
-
+        @Column(name = "cargo", length = 13)
+        private String cargo;
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
                 return List.of();
